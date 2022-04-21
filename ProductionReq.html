@@ -1,0 +1,134 @@
+<html>
+ <body>
+ <style type='text/css'>
+    .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #FFD400;
+        border-color: 1px solid #FFD400;
+        font-family: “Styrene Reg”, Helvetica, Arial, sans-serif;
+				color: #3A3F44 !important;
+				font-size: 14px !important;
+    }
+    .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        background-color: #FFD400;
+        border-color: 1px solid #FFD400;
+        outline: 1px solid #FFD400;
+    }
+   .embeddedServiceSidebarMinimizedDefaultUI.helpButton {
+      background-color: #FFD400 !important;
+      border-color: #FFD400 !important;
+		 	font-family: “Styrene Reg”, Helvetica, Arial, sans-serif;
+      color: #3A3F44 !important;
+      font-size: 14px !important;
+   }
+   .button[embeddedService-chatHeader_chatHeader] {
+    padding: 0px 0px;
+   }
+   .embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus{
+      background-color: #FFD400 !important;
+      border-color: #FFD400 !important;
+   }
+   .embeddedServiceSidebarFormField .uiInput .uiLabel-left{
+    color:#2e373A;
+   }
+   .embeddedServiceSidebarButton {
+        background-color: #FFD400;
+        font-family: “Arial”, sans-serif;
+        background: #FFD400;
+    }
+   .sidebarHeader{
+     background-color: #284249;
+   }
+   .sidebarHeader[embeddedService-chatHeader_chatHeader], .loadingAnimation[embeddedService-chatHeader_chatHeader], .headerAnnouncement[embeddedService-chatHeader_chatHeader]{
+      background-color: #284249;
+      color: #DEDBCB !important;
+   }
+		h2[embeddedService-chatHeader_chatHeader]
+   {
+	color: #DEDBCB !important;
+   }
+	
+.embeddedServiceSidebarFormField .slds-style-inputtext {
+    margin: 0px !important;
+}
+.embeddedServiceSidebarButton {
+    background-color: #FFD400 !important;
+}
+.embeddedServiceSidebarButton .label, .embeddedServiceSidebarButton:disabled .label{
+    color: #2E373A !important;
+}
+		
+.button-default button:after {
+    position: unset !important;
+	content: unset !important
+}
+button[embeddedService-chatHeader_chatHeader] {
+    position: unset !important;
+    padding: 0px 0px !important;
+}
+		.embeddedServiceSidebarMinimizedDefaultUI .minimizedText>.message {
+    color: #3A3F44 !important;
+    font-size: 14px !important;
+}
+		
+.embeddedServiceSidebarMinimizedDefaultUI{
+		border-radius: 8px 8px 0 0 !important;
+		box-sizing: revert !important;		
+}
+		.embeddedServiceIcon svg{
+		fill: #3A3F44 !important;
+}
+		.embeddedServiceHelpButton .embeddedServiceIcon{
+display: block !important;
+}
+		embeddedservice-chat-header lightning-icon, embeddedservice-chat-header svg.slds-icon-text-default{
+height: 1rem !important;
+}
+</style>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+		// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+		// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+		embedded_svc.init(
+			'https://energyworldnet.my.salesforce.com',
+			'https://energyworldnet-17eeb2f16ef.force.com/defaulthelpcenter11Feb',
+			gslbBaseURL,
+			'00DA0000000grP2',
+			'CSRs',
+			{
+				baseLiveAgentContentURL: 'https://c.la3-c2-ia5.salesforceliveagent.com/content',
+				deploymentId: '5725a000000PmvV',
+				buttonId: '5735a000000PnKv',
+				baseLiveAgentURL: 'https://d.la3-c2-ia5.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'CSRs',
+				isOfflineSupportEnabled: true
+			}
+		);
+	};
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://energyworldnet.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+</body>
+</html>
